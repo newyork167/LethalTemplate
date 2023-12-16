@@ -29,10 +29,10 @@ if (-not $thunderstore_installed) {
 $lethal_company_folder = Get-Folder -description "Select Lethal Company folder (e.g. C:\Program Files (x86)\Steam\steamapps\common\Lethal Company)" -initialDirectory "C:\Program Files (x86)\Steam\steamapps\common"
 $thunderstore_profile_folder = Get-Folder -description "Select Thunderstore Profile folder (e.g. $Env:USERPROFILE\AppData\Roaming\Thunderstore Mod Manager\DataFolder\LethalCompany\profiles\Modding)" -initialDirectory "$Env:USERPROFILE\AppData\Roaming\Thunderstore Mod Manager\DataFolder\LethalCompany\profiles\"
 
-(Get-Content .\LethalCompanyTemplate\LethalCompanyTemplate.csproj).Replace('LETHAL_COMPANY_FOLDER', $lethal_company_folder) | Set-Content .\LethalCompanyTemplate\LethalCompanyTemplate.csproj
-(Get-Content .\LethalCompanyTemplate\LethalCompanyTemplate.csproj).Replace('THUNDERSTORE_PROFILE_FOLDER', $thunderstore_profile_folder) | Set-Content .\LethalCompanyTemplate\LethalCompanyTemplate.csproj
+(Get-Content .\LethalTemplate\LethalTemplate.csproj).Replace('LETHAL_COMPANY_FOLDER', $lethal_company_folder) | Set-Content .\LethalTemplate\LethalTemplate.csproj
+(Get-Content .\LethalTemplate\LethalTemplate.csproj).Replace('THUNDERSTORE_PROFILE_FOLDER', $thunderstore_profile_folder) | Set-Content .\LethalTemplate\LethalTemplate.csproj
 
-cd LethalCompanyTemplate
+cd LethalTemplate
 dotnet add package BepInEx.PluginInfoProps --version 2.1.0
 dotnet add package BepInEx.Analyzers --version 1.0.8
 dotnet add package Lib.Harmony --version 2.2.2
