@@ -94,7 +94,7 @@
     </Target>
 
     <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-        <Exec Command="cd D:\Development\Personal\Gaming\LethalCompany\Tools\NetcodePatcher-2.3.0&#xD;&#xA;NetcodePatcher.dll $(TargetDir) deps/" />
+        <Exec Command="cd .\tools\NetcodePatcher-2.3.0&#xD;&#xA;NetcodePatcher.dll $(TargetDir) deps/" />
     </Target>
 
     <Target Name="PostBuild" AfterTargets="PostBuildEvent">
