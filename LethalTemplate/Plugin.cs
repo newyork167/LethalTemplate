@@ -2,7 +2,7 @@
 using BepInEx.Logging;
 using UnityEngine;
 
-namespace LethalCompanyTemplate
+namespace LethalTemplate
 {
     
     [BepInPlugin("org.newyork167.plugins.lethaltemplate", "Example Plug-In", "1.0.0.0")]

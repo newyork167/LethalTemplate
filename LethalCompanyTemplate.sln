@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LethalCompanyTemplate", "LethalCompanyTemplate\LethalCompanyTemplate.csproj", "{2DC60A9D-F44B-4B06-8A37-9B05D6D2CAC8}"
+Project("{294837ed-751b-4990-8b9f-ea387761d483}") = "LethalTemplate", "LethalTemplate\LethalTemplate.csproj", "{6fe50d0a-0bb1-4e9c-bc7d-6f1920deae86}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -8,9 +8,9 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2DC60A9D-F44B-4B06-8A37-9B05D6D2CAC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2DC60A9D-F44B-4B06-8A37-9B05D6D2CAC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2DC60A9D-F44B-4B06-8A37-9B05D6D2CAC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2DC60A9D-F44B-4B06-8A37-9B05D6D2CAC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6fe50d0a-0bb1-4e9c-bc7d-6f1920deae86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6fe50d0a-0bb1-4e9c-bc7d-6f1920deae86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6fe50d0a-0bb1-4e9c-bc7d-6f1920deae86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6fe50d0a-0bb1-4e9c-bc7d-6f1920deae86}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
