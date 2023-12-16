@@ -1,9 +1,9 @@
 $solution_dir = $args[0]
 
 $plugin_name = Get-ChildItem -Path . -Filter plugin.cs -Recurse -ErrorAction SilentlyContinue -Force | ForEach-Object {Get-Content $_.FullName} | % {if ($_ -match "BepInPlugin") {$plugin_vars=$_.Split(','); $plugin_vars[1]}}
-$plugin_name = $plugin_name.ToLower().Replace(' ', '-')
-
+$plugin_name = $plugin_name.substring(1).ToLower().Replace(' ', '-').replace('"', '')
 $assembly_name = Get-ChildItem -Path . -Filter *.csproj -Recurse -ErrorAction SilentlyContinue -Force | ForEach-Object {Get-Content $_.FullName} | % {if ($_ -match "AssemblyName") {$csproj_vars=$_.Split('>'); $csproj_vars[1].Split('<')[0]}}
+
 $dll_build = "$solution_dir\LethalCompanyTemplate\bin\Debug\netstandard2.1\$assembly_name.dll"
 
 $profiles_to_copy_to = @(
