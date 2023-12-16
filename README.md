@@ -1,5 +1,6 @@
-# LethalCompanyTemplate
-A template for a BepInEx 5 Plugin, using the correct .csproj configuration for Lethal Company modding
+# Lethal Company Template
+
+A template for a BepInEx Lethal Company Plugin
 
 `git clone --recurse-submodules git@github.com:newyork167/LethalTemplate.git`
 
