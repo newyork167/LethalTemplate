@@ -1,4 +1,6 @@
 ﻿using BepInEx;
+using BepInEx.Logging;
+using UnityEngine;
 
 namespace LethalCompanyTemplate
 {
@@ -7,6 +9,8 @@ namespace LethalCompanyTemplate
     public class Plugin : BaseUnityPlugin
     {
         private string PLUGIN_GUID = "org.newyork167.plugins.lethaltemplate";
+        
+        internal static ManualLogSource Log;
         private void Awake()
         {
             // Plugin startup logic
