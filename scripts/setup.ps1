@@ -36,4 +36,3 @@ cd LethalCompanyTemplate
 dotnet add package BepInEx.PluginInfoProps --version 2.1.0
 dotnet add package BepInEx.Analyzers --version 1.0.8
 dotnet add package Lib.Harmony --version 2.2.2
-cd -
