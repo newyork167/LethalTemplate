@@ -1,7 +1,7 @@
 ﻿using HarmonyLib;
 using UnityEngine.InputSystem;
 
-namespace LethalFreedom.Patches
+namespace LethalCompanyTemplate.Patches
 {
     [HarmonyPatch]
     internal class HUDManagerPatch
