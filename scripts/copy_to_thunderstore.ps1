@@ -4,7 +4,7 @@ $plugin_name = Get-ChildItem -Path . -Filter plugin.cs -Recurse -ErrorAction Sil
 $plugin_name = $plugin_name.substring(1).ToLower().Replace(' ', '-').replace('"', '')
 $assembly_name = Get-ChildItem -Path . -Filter *.csproj -Recurse -ErrorAction SilentlyContinue -Force | ForEach-Object {Get-Content $_.FullName} | % {if ($_ -match "AssemblyName") {$csproj_vars=$_.Split('>'); $csproj_vars[1].Split('<')[0]}}
 
-$dll_build = "$solution_dir\$assembly_name\bin\Debug\netstandard2.1\$assembly_name.dll"
+$dll_build = "$solution_dir\LethalTemplate\bin\Debug\netstandard2.1\$assembly_name.dll"
 
 $profiles_to_copy_to = @(
     "Modding"

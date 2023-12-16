@@ -32,7 +32,9 @@ $thunderstore_profile_folder = Get-Folder -description "Select Thunderstore Prof
 (Get-Content .\LethalTemplate\LethalTemplate.csproj).Replace('LETHAL_COMPANY_FOLDER', $lethal_company_folder) | Set-Content .\LethalTemplate\LethalTemplate.csproj
 (Get-Content .\LethalTemplate\LethalTemplate.csproj).Replace('THUNDERSTORE_PROFILE_FOLDER', $thunderstore_profile_folder) | Set-Content .\LethalTemplate\LethalTemplate.csproj
 
+Push-Location
 cd LethalTemplate
 dotnet add package BepInEx.PluginInfoProps --version 2.1.0
 dotnet add package BepInEx.Analyzers --version 1.0.8
 dotnet add package Lib.Harmony --version 2.2.2
+Pop-Location
