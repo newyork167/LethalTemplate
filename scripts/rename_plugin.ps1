@@ -94,10 +94,10 @@ $name = Show-CustomInputBox -title "Lethal Company Plugin Setup" -message "Enter
 Write-Host "Changing plugin dev name to: $name"
 
 # Replace contents of all files with the new plugin name
-(Get-Content .\LethalTemplate\Patches\HudManagerPatch.cs).Replace('LethalTemplate', $plugin_name_pascal_case) | Set-Content .\LethalTemplate\Patches\HudManagerPatch.cs
+(Get-Content .\LethalTemplate\Patches\HudManagerPatch.cs).Replace('namespace LethalTemplate', "namespace $plugin_name_pascal_case") | Set-Content .\LethalTemplate\Patches\HudManagerPatch.cs
 
 (Get-Content .\LethalTemplate\plugin.cs).Replace('namespace LethalTemplate', "namespace $plugin_name_pascal_case") | Set-Content .\LethalTemplate\plugin.cs
 (Get-Content .\LethalTemplate\plugin.cs).Replace('org.newyork167.plugins.lethaltemplate', "org.$name.plugins.$plugin_name_lower_case") | Set-Content .\LethalTemplate\plugin.cs
 (Get-Content .\LethalTemplate\plugin.cs).Replace('Example Plug-In', "$plugin_name") | Set-Content .\LethalTemplate\plugin.cs
 
-(Get-Content .\LethalTemplate\LethalTemplate.csproj).Replace('namespace LethalTemplate', "namespace $plugin_name_pascal_case") | Set-Content .\LethalTemplate\LethalTemplate.csproj
+(Get-Content .\LethalTemplate\LethalTemplate.csproj).Replace('LethalTemplate', "$plugin_name_pascal_case") | Set-Content .\LethalTemplate\LethalTemplate.csproj
