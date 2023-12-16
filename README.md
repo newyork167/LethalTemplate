@@ -35,7 +35,7 @@ to match the GUID you used in the `BepInPlugin` annotation.
 
 ## Copying To Thunderstore
 
-You can add multiple profiles to copy to by adding them to the array in [copy_to_thunderstore.ps1](.\Scripts\copy_to_thunderstore.ps1):
+You can add multiple profiles to copy to by adding them to the array in [copy_to_thunderstore.ps1](scripts/copy_to_thunderstore.ps1):
 
 ```powershell
 $profiles_to_copy_to = @(
