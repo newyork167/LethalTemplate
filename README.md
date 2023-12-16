@@ -13,7 +13,7 @@ Make sure you create a profile, and from the "Get Mods" section, install [BepInE
 
 Run `.\Scripts\setup.ps1` to setup the project files. You will need to select the root Lethal Company install folder in your steamapps, and then you will need to select the Thunderstore profile you have a bepinex install in already.
 
-In [plugin.cs](LethalCompanyTemplate/plugin.cs) you will need to change the `BepInPlugin` annotation to your mod's details
+In [plugin.cs](LethalCompanyTemplate/Plugin.cs) you will need to change the `BepInPlugin` annotation to your mod's details
 
 ```csharp
 [BepInPlugin("org.newyork167.plugins.lethaltemplate", "Example Plug-In", "1.0.0.0")]
