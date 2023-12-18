@@ -36,6 +36,9 @@ jobs:
         dotnet add package BepInEx.Analyzers --version 1.0.8
         dotnet add package Lib.Harmony --version 2.2.2
         Pop-Location
+        
+    - name: Add devenv to path
+      run: echo "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\devenv" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 
     - name: Build LethalTemplate Solution
-      run: & 'C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\devenv.com' /build ${{ matrix.configuration }} LethalTemplate.sln
+      run: devenv /build ${{ matrix.configuration }} LethalTemplate.sln
