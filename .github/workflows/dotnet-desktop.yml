@@ -1,0 +1,41 @@
+name: LethalTemplate
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        configuration: [Debug, Release]
+
+    runs-on: [self-hosted, Windows]
+
+    env:
+      Solution_Name: LethalTemplate.sln
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Set LethalTemplate csproj variables
+      run: |
+        (Get-Content .\LethalTemplate\LethalTemplate.csproj).Replace('LETHAL_COMPANY_FOLDER', "C:\actions-runner\lethal-company\LethalCompanyDLLs\Lethal Company_Data") | Set-Content .\LethalTemplate\LethalTemplate.csproj
+        (Get-Content .\LethalTemplate\LethalTemplate.csproj).Replace('THUNDERSTORE_PROFILE_FOLDER', "C:\actions-runner\lethal-company\LethalCompanyDLLs") | Set-Content .\LethalTemplate\LethalTemplate.csproj
+
+    - name: Install dotnet packages
+      run: |
+        Push-Location
+        cd LethalTemplate
+        dotnet add package BepInEx.PluginInfoProps --version 2.1.0
+        dotnet add package BepInEx.Analyzers --version 1.0.8
+        dotnet add package Lib.Harmony --version 2.2.2
+        Pop-Location
+
+    - name: Build LethalTemplate Solution
+      run: devenv /build ${{ matrix.configuration }} LethalTemplate.sln
