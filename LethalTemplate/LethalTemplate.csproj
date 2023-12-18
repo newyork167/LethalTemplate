@@ -94,8 +94,8 @@
         <Message Text="SolutionDir=$(SolutionDir)" />
     </Target>
 
-    <Target Name="BeforeBuild">
-        <Message Text="powershell.exe $(SolutionDir)/scripts/get_latest_netcode_patcher.ps1 $(SolutionDir)" />
+    <Target Name="PostBuild">
+        <Exec Command="powershell.exe $(SolutionDir)/scripts/get_latest_netcode_patcher.ps1 $(SolutionDir)" />
     </Target>
 
     <Target Name="PostBuild" AfterTargets="PostBuildEvent">
