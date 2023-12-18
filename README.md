@@ -1,5 +1,7 @@
 # Lethal Company Template
 
+![Build Badge](https://github.com/newyork167/LethalTemplate/actions/workflows/dotnet-desktop.yml/badge.svg)
+
 A template for a BepInEx Lethal Company Plugin
 
 `git clone --recurse-submodules git@github.com:newyork167/LethalTemplate.git {your mod name}`
