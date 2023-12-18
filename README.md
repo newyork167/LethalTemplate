@@ -20,6 +20,8 @@ If you decide to setup everything manually, you can run `.\scripts\rename_plugin
 
 The setup script will run the rename script for you at the end otherwise.
 
+## Renaming Plugin
+
 In [plugin.cs](LethalTemplate/Plugin.cs) you will need to change the `BepInPlugin` annotation to your mod's details
 
 ```csharp
@@ -52,3 +54,7 @@ $profiles_to_copy_to = @(
 ```
 
 This can be useful if you want a minimal modding profile, but then have it ready to go for a full profile.
+
+## Credits
+
+- EvaisaDev for work on https://github.com/EvaisaDev/UnityNetcodeWeaver
