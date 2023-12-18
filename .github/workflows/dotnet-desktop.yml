@@ -38,7 +38,7 @@ jobs:
         Pop-Location
         
     - name: Add devenv to path
-      run: echo "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\devenv" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+      run: echo "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 
     - name: Build LethalTemplate Solution
       run: devenv /build ${{ matrix.configuration }} LethalTemplate.sln
