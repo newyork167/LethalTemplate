@@ -18,6 +18,9 @@ jobs:
       Solution_Name: LethalTemplate.sln
 
     steps:
+    - name: Whoami
+      run: echo $(whoami)
+      
     - name: Checkout
       uses: actions/checkout@v3
       with:
