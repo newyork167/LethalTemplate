@@ -57,4 +57,4 @@ This can be useful if you want a minimal modding profile, but then have it ready
 
 ## Credits
 
-- @EvaisaDev for work on https://github.com/EvaisaDev/UnityNetcodeWeaver
+- [@EvaisaDev](https://github.com/EvaisaDev) for work on https://github.com/EvaisaDev/UnityNetcodeWeaver
