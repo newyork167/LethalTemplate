@@ -102,7 +102,7 @@
         <Exec Command="cd .\tools\NetcodePatcher&#xD;&#xA;NetcodePatcher.dll $(TargetDir) deps/" />
     </Target>
 
-    <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="$(Username)!='NetworkService'">
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="$(Username)!='network service'">
         <Exec Command="powershell.exe $(SolutionDir)/scripts/copy_to_thunderstore.ps1 $(SolutionDir)" />
     </Target>
 </Project>
