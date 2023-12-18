@@ -38,4 +38,4 @@ jobs:
         Pop-Location
 
     - name: Build LethalTemplate Solution
-      run: devenv /build ${{ matrix.configuration }} LethalTemplate.sln
+      run: & 'C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\devenv.com' /build ${{ matrix.configuration }} LethalTemplate.sln
