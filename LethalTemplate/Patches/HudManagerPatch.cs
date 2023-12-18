@@ -15,5 +15,15 @@ namespace LethalTemplate.Patches
             
             return true;
         }
+    
+        [HarmonyPrefix]
+        [HarmonyPatch(typeof(HUDManager), "CanPlayerScan")]
+        private static bool CanPlayerScan(HUDManager __instance, ref bool __result)
+        {
+            Plugin.Log.LogError("CanPlayerScan called");
+            __result = false;  // __result will be the return value of the original method
+            
+            return false; // Returning false will skip the original method
+        }
     }
 }

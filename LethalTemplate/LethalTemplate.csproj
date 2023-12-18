@@ -16,6 +16,7 @@
         </PackageReference>
 <!--        <PackageReference Include="BepInEx.Core" Version="6.0.0-pre.1" />-->
         <PackageReference Include="BepInEx.PluginInfoProps" Version="2.1.0" />
+        <PackageReference Include="Lib.Harmony" Version="2.2.2" />
         <PackageReference Include="UnityEngine.Modules" Version="2022.3.9" IncludeAssets="compile" />
     </ItemGroup>
 
@@ -93,8 +94,12 @@
         <Message Text="SolutionDir=$(SolutionDir)" />
     </Target>
 
+    <Target Name="BeforeBuild">
+        <Message Text="powershell.exe $(SolutionDir)/scripts/get_latest_netcode_patcher.ps1 $(SolutionDir)" />
+    </Target>
+
     <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-        <Exec Command="cd .\tools\NetcodePatcher-2.3.0&#xD;&#xA;NetcodePatcher.dll $(TargetDir) deps/" />
+        <Exec Command="cd .\tools\NetcodePatcher&#xD;&#xA;NetcodePatcher.dll $(TargetDir) deps/" />
     </Target>
 
     <Target Name="PostBuild" AfterTargets="PostBuildEvent">
