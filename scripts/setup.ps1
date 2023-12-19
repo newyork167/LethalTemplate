@@ -26,7 +26,27 @@ if (-not $thunderstore_installed) {
     exit -1
 }
 
-$lethal_company_folder = Get-Folder -description "Select Lethal Company folder (e.g. C:\Program Files (x86)\Steam\steamapps\common\Lethal Company)" -initialDirectory "C:\Program Files (x86)\Steam\steamapps\common"
+$drive_letters = (Get-PSDrive).Name -match '^[a-z]$'
+$lethal_company_folder = $drive_letters | ForEach-Object {
+    # If this drive is C, check if the folder is in Program Files (x86)
+    if ($_ -eq 'C') {
+        Write-Host "Checking if C:/Program Files (x86)/Steam/steamapps/common/Lethal Company exists"
+        if (Test-Path "C:/Program Files (x86)/Steam/steamapps/common/Lethal Company") {
+            return "C:/Program Files (x86)/Steam/steamapps/common/Lethal Company"
+        }
+    }
+
+    Write-Host "Checking if '$($_):/SteamLibrary/steamapps/common/Lethal Company' exists"
+    if (Test-Path "$($_):/SteamLibrary/steamapps/common/Lethal Company") {
+        return "$($_):/SteamLibrary/steamapps/common/Lethal Company"
+    }
+}
+
+# If we didn't find the folder, ask the user to select it
+if (-not $lethal_company_folder) {
+    $lethal_company_folder = Get-Folder -description "Select Lethal Company folder (e.g. C:\Program Files (x86)\Steam\steamapps\common\Lethal Company)" -initialDirectory "C:\Program Files (x86)\Steam\steamapps\common"
+}
+
 $thunderstore_profile_folder = Get-Folder -description "Select Thunderstore Profile folder (e.g. $Env:USERPROFILE\AppData\Roaming\Thunderstore Mod Manager\DataFolder\LethalCompany\profiles\Modding)" -initialDirectory "$Env:USERPROFILE\AppData\Roaming\Thunderstore Mod Manager\DataFolder\LethalCompany\profiles\"
 
 (Get-Content .\LethalTemplate\LethalTemplate.csproj).Replace('LETHAL_COMPANY_FOLDER', $lethal_company_folder) | Set-Content .\LethalTemplate\LethalTemplate.csproj
