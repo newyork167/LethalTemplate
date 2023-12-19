@@ -10,7 +10,7 @@ jobs:
   build:
     strategy:
       matrix:
-        configuration: [Debug, Release]
+        configuration: [Debug]
 
     runs-on: [self-hosted, Windows]
 
@@ -42,3 +42,12 @@ jobs:
 
     - name: Build LethalTemplate Solution
       run: devenv /build ${{ matrix.configuration }} LethalTemplate.sln
+      
+    - name: Upload Example DLL
+      uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+        body: |
+          This is an example build. Drop it in `%appdata%\Roaming\Thunderstore Mod Manager\DataFolder\LethalCompany\profiles\{profile name}\BepInEx\plugins\` to test it. You should see log messages in the console when you start the game.
+        files: |
+          .\LethalTemplate\bin\${{ matrix.configuration }}\netstandard2.1\LethalTemplate.dll
